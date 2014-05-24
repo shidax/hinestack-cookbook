@@ -29,7 +29,7 @@ script "install_hinemos_agent" do
   code <<-EOL
     tar xzvf /tmp/#{filename} -C /tmp/
     cd /tmp/#{extract_name}/
-    sudo bash agent_installer_EN.sh -i -m 172.24.4.227
+    bash agent_installer_EN.sh -i -m 172.24.4.227
   EOL
 end
 
