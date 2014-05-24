@@ -8,9 +8,27 @@
 #
 
 log "Install or update packages"
-%w{java-1.7.0-openjdk, rsyslog, net-snmp}.each do |pkg|
+%w{rsyslog, net-snmp}.each do |pkg|
   package pkg do
     action :install
   end
+end
+
+log "Retrieve hinemos-agent archive"
+filename = "hinemos_agent-4.1.1_rhel5-rhel6.tar.gz"
+
+cookbook_file "/tmp/#{filename}" do
+  source "#{filename}"
+end
+
+log "Unpack and execute installer"
+script "install_hinemos_agent" do
+  interpreter "bash"
+  user        "root"
+  code <<-EOL
+    tar xzvf /tmp/#{filename} -C
+    cd /tmp/#{filename}/
+    bash agent_installer_all
+  EOL
 end
 
