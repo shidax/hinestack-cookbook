@@ -8,7 +8,7 @@
 #
 
 log "Install or update packages"
-%w{rsyslog, net-snmp}.each do |pkg|
+%w{rsyslog.x86_64,net-snmp.x86_64}.each do |pkg|
   package pkg
 end
 
