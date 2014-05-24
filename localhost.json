@@ -1,3 +1,7 @@
 {
-  "run_list": ["recipe[hinemos-agent]"]
+  "java": {
+    "jdk_version": 7,
+    "java_home": "/usr/local/java"
+  }
+  "run_list": ["recipe[java]", "recipe[hinemos-agent]"]
 }
