@@ -9,9 +9,7 @@
 
 log "Install or update packages"
 %w{rsyslog, net-snmp}.each do |pkg|
-  package pkg do
-    action :install
-  end
+  package pkg
 end
 
 log "Retrieve hinemos-agent archive"
